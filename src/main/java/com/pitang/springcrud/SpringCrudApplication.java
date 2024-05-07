@@ -1,13 +1,13 @@
-package com.example.Pitang;
+package com.pitang.springcrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PitangApplication {
+public class SpringCrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PitangApplication.class, args);
+		SpringApplication.run(SpringCrudApplication.class, args);
 	}
 
 }
