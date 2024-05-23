@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/client")
 public class ClientController {
 
@@ -52,5 +53,10 @@ public class ClientController {
         clientService.updateCredit(id, clientDTO);
 
         return ResponseEntity.ok("Cliente com o ID " + id + " teve seu crédito atualizado com sucesso!");
+    }
+    @PatchMapping("/activate/{id}")
+    public ResponseEntity<String> activateClient(@PathVariable UUID id){
+        clientService.activateClient(id);
+        return ResponseEntity.ok("Cliente com o ID " + id + " foi ativado com sucesso!");
     }
 }

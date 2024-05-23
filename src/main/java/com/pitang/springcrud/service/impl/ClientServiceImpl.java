@@ -85,4 +85,15 @@ public class ClientServiceImpl implements ClientService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não é possível atualizar o crédito de um cliente inativo.");
         }
     }
+    @Override
+    public void activateClient(UUID id) {
+        Client client = clientRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "id invalido " + id));
+        if("Ativo".equals(client.getStatus())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Cliente ja esta ativo");
+        }
+        client.setStatus("Ativo");
+        clientRepository.save(client);
+    }
 }

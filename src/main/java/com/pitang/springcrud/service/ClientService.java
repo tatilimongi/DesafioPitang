@@ -19,4 +19,5 @@ public interface ClientService {
 
     void updateCredit(UUID id, ClientDTO clientDTO);
 
+    void activateClient(UUID id);
 }
